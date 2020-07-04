@@ -80,7 +80,7 @@ class _StatsScreenState extends State<StatsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget> [
               Text (
-                  'STATISTICS',
+                  'COVID-19 UPDATES',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 25.0,

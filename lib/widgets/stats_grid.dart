@@ -17,7 +17,7 @@ class StatsGrid extends StatelessWidget {
 
   static Map<Endpoint, EndpointCardData> _cardsData = {
     Endpoint.cases: 
-      EndpointCardData('Cases:', 'assets/ico/count.png', Color(0xFFFFF492)),
+      EndpointCardData('Cases:', 'assets/ico/count.png', Color(0xFFE99600)),
     Endpoint.deaths:
       EndpointCardData('Deaths:', 'assets/ico/death.png', Color(0xFFE40000)),
     Endpoint.recovered:
@@ -25,10 +25,13 @@ class StatsGrid extends StatelessWidget {
     Endpoint.active:
       EndpointCardData('Active:', 'assets/ico/fever.png', Color(0xFFEEDA92)),
     Endpoint.critical:
-      EndpointCardData('Critical:', 'assets/ico/suspect.png', Color(0xFFE99600)),
+      EndpointCardData('Critical:', 'assets/ico/suspect.png', Color(0xFFFFF492)),
     };
 
   Widget build(BuildContext context){
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     final cardData = _cardsData[endpoint];
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
@@ -41,14 +44,15 @@ class StatsGrid extends StatelessWidget {
                             color: Colors.black54,
                           ),
                         ],
-           gradient: LinearGradient(
+           /*gradient: LinearGradient(
              begin: Alignment.topLeft,
               end: Alignment.bottomRight,
                 colors: [
                   Color.fromRGBO(76, 91, 124, 1),
                   Color.fromRGBO(141, 107, 197, 10),
                 ]
-            ),
+            ),*/
+            color: cardData.color,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding (
@@ -57,22 +61,25 @@ class StatsGrid extends StatelessWidget {
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
            crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-             Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+             Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+               Image.asset(
+                    cardData.assetName,
+                    scale: 1,
+                    color: Colors.black, //cardData.color,
+                    ),
+               SizedBox(width: 8,),
               Text(
                     cardData.title,
                     style: Theme.of(context)
                       .textTheme
-                      .headline6
-                      .copyWith(color: cardData.color),
+                      .headline5
+                      //.copyWith(color: cardData.color),
                   ),
-              SizedBox(height: 4,),
-                  Image.asset(
-                    cardData.assetName,
-                    scale: 1.8,
-                    color: cardData.color,
-                    ),
+             
+                 
             ],
           ),
             Text(
@@ -81,7 +88,7 @@ class StatsGrid extends StatelessWidget {
                       .textTheme
                       .headline5
                       .copyWith(
-                        color: cardData.color, 
+                        //color: cardData.color, 
                         fontWeight: FontWeight.bold,
                         fontSize: 27, 
                         )
