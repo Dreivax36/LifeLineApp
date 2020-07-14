@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lifeline/screens/home_screen.dart';
+import 'package:lifeline/screens/news.dart';
 import 'package:lifeline/screens/screens.dart';
 
 
@@ -12,8 +13,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     HomeScreen(),
     StatsScreen(),
-    Scaffold(),
-    Scaffold(),
+    Map(),
+    News(),
     Scaffold(),
   ];
   int _currentIndex = 0;

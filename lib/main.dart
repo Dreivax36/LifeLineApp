@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lifeline/screens/screens.dart';
+import 'package:lifeline/screens/splashscreen.dart';
 import 'package:provider/provider.dart';
 
 import 'app/repositories/data_repository.dart';
@@ -7,14 +7,19 @@ import 'app/services/api.dart';
 import 'app/services/api_service.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Load());
 }
 
-class MyApp extends StatelessWidget {
+class Load extends StatefulWidget {
+  @override
+  _LoadState createState() => _LoadState();
+}
+
+class _LoadState extends State<Load> {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return Provider<DataRepository>(
       create: (_) => DataRepository(
         apiService: APIService(AdminAPI.sandbox()),
@@ -27,9 +32,8 @@ class MyApp extends StatelessWidget {
               scaffoldBackgroundColor: Colors.white,
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
-            home: BottomNavScreen(),
+            home: SplashScreen(),
           )
     );
   }
 }
-

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "462165047569-a3gg6ahbudn2eb0jen2msol4o3l43jqm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dxavier.com.lifeline",
+            "certificate_hash": "1edca02e721ad7ff7210010528318ce5d68f709f"
+          }
+        },
+        {
           "client_id": "462165047569-ajpibbib1nlus3sm5jn70q538fpbqu7m.apps.googleusercontent.com",
           "client_type": 3
         }

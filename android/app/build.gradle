@@ -22,7 +22,19 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
+
+dependencies {
+  // add the Firebase SDK for Google Analytics
+  implementation 'com.google.firebase:firebase-analytics:17.2.0'
+  // add SDKs for any other desired Firebase products
+  // https://firebase.google.com/docs/android/setup#available-libraries
+}
+// Add to the bottom of the file
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
@@ -39,7 +51,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "dxavier.com.lifeline"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -60,4 +72,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
 }
